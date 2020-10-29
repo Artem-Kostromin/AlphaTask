@@ -5,7 +5,6 @@ import ru.sberbank.utils.Extractor;
 
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.Date;
 
 public class Main {
     private static final Logger logger = Logger.getLogger(Main.class.getName());
@@ -28,7 +27,7 @@ public class Main {
                     Path filesPath = Paths.get(path + separator + event.context());
                     String filesEvent = Extractor.getEvent(event.kind());
 
-                    logger.info("File " + event.context() + " " + filesEvent + " at " + new Date().getTime());
+                    logger.info("File " + event.context() + " " + filesEvent + "!");
                     if (filesEvent.equals("created")) EventDistributor.distribute(filesPath);
                 }
                 key.reset();
